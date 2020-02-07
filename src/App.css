@@ -1,38 +1,70 @@
-.App {
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	padding: 25px;
+	background-color: rgb(255, 51, 119);
+	text-align: center;
+}
+
+.App{
   text-align: center;
+  vertical-align: middle;
+  overflow: hidden;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.Animation-App {
+	display: inline-block;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.Animation-App form > input{
+  width: 100%;
+  padding: 5px 0;
+  margin: 5px 0;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.item {
+	background-color: rgb(82, 144, 197);
+	width: 400px;
+	text-align: center;
+	padding: 10px 5px;
+	margin-top: 10px;
+	border-radius: 8px;
+	font-weight: 600;
+	color: rgb(72, 255, 0);
+}
+.item:hover {
+  cursor: pointer;
+  background-color: seashell;
 }
 
-.App-link {
-  color: #61dafb;
+
+/* /////////////////////////////////////////////// */
+
+.AppExp-enter {
+  opacity: 0;
+  transform: translate(-250px,0);
+  transform: translate3d(-250px,0,0);
+}
+.AppExp-enter.AppExp-enter-active {
+  opacity: 1;
+  transition: opacity 1s ease;
+  transform:   translate(0,0);
+  transform: translate3d(0,0,0);
+  transition-property: transform, opacity;
+  transition-duration: 300ms;
+  transition-timing-function: cubic-bezier(0.175, 0.665, 0.320, 1), linear;
+}
+.AppExp-leave {
+  opacity: 1;
+  transform: translate(0,0,0);
+  transform: translate3d(0,0,0);
+  transition-property: transform, opacity;
+  transition-duration: 300ms;
+  transition-timing-function: cubic-bezier(0.175, 0.665, 0.320, 1), linear;
+}
+.AppExp-leave.AppExp-leave-active {
+  opacity: 0;
+  transform: translate(250px,0);
+  transform: translate3d(250px,0,0);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+
